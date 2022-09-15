@@ -3,6 +3,11 @@ Group Name: TEAM_NAME
 
 [MVP Link](http://cs196.cs.illinois.edu)
 
-Team Members: STUDENTS_NETIDS
+Team Members: ilk2
+              oliverr3
+              haiyuew2
+              nishkdp2
+              jiya2
+              zhang421
 
-Project Manager: PM_NETID
+Project Manager: pma7
