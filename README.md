@@ -1,7 +1,7 @@
-# Group TEAM_NUMBER
-Group Name: TEAM_NAME
+# Group 19
+Group Name: (undecided)
 
-[MVP Link](http://cs196.cs.illinois.edu)
+[MVP Link](https://docs.google.com/document/d/1fWk0DiJ9DeTcZ_j8ieghhO3Ip4r1U6vAcazE0e7Imj8/edit?usp=sharing)
 
 Team Members: ilk2,
               oliverr3,
