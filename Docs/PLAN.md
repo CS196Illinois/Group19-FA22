@@ -1,1 +1,1 @@
-The Project Topic is Stock Sentiment Analysis. The plan is going to scrape social media and using that data stock predictions will be formulated. The project will also include a Front-End interface and Group 19 will also design a website.
+The Project Topic is Stock Sentiment Analysis. The plan is going to scrape social media and using that data, stock predictions will be formulated. The project will also include a Front-End interface and Group 19 will also design a website.
