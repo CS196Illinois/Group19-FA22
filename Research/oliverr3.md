@@ -12,3 +12,6 @@ Chakra UI (prebuilt good looking components)
 ## Other tools needed
 Chart.js (chart components)
 Axios (requests for backend)
+
+## APIs
+Finnhub Stock API (https://finnhub.io/docs/api)
