@@ -6,7 +6,6 @@ Group Name: (undecided)
 Team Members: ilk2,
               oliverr3,
               haiyuew2,
-              nishkdp2,
               jiya2,
               zhang421
 
