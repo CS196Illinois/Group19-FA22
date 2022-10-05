@@ -3,19 +3,23 @@
 ## Frontend frameworks
 React
 
-[Full Stack Open](https://fullstackopen.com/en)
+[Full Stack Open](https://fullstackopen.com/en) [React Docs](https://reactjs.org/docs/getting-started.html)
 
 ## CSS frameworks
 
 Material UI or Chakra UI (prebuilt good looking components)
+
 [MUI Docs](https://mui.com/material-ui/getting-started/installation/)
+
 [Chakra Docs](https://chakra-ui.com/getting-started/cra-guide)
 
 
 ## Other tools needed
 Chart.js (chart components)
+[Chart.js React Components](https://react-chartjs-2.js.org/)
 
 Axios (requests for backend)
+[HTTP Request Methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
 
 ## APIs
 [Finnhub Stock API](https://finnhub.io/docs/api)
