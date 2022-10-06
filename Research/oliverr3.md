@@ -37,3 +37,8 @@ sql database in one file that is run
 can be configured with fastapi easily using sqlalchemy
 
 [FastAPI SQL lite tutorial](https://fastapi.tiangolo.com/tutorial/sql-databases/)
+
+## [Mongo DB](https://www.mongodb.com/docs/atlas/getting-started/)
+document based database
+
+run in the cloud and has a user friendly gui
