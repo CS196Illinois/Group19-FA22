@@ -1,6 +1,6 @@
 # How To Setup Backend
 
-- setup your python virtual environment
+- setup your python virtual environment [Instructions](https://docs.python.org/3/tutorial/venv.html)
 - download these files into your project directory
 - run `pip install requirements.txt` in the terminal to install all required packages
 - run `uvicorn main:app --reload` to run the server
