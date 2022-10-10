@@ -1,8 +1,5 @@
 #make a requirements.txt file
-#Kaggle
-from kaggle import KaggleApi
-api = KaggleApi()
-api.authenticate()
+
 #NumPy
 import numpy as np
 import pandas as pd
@@ -105,7 +102,7 @@ from sklearn.model_selection import train_test_split
 
 
 # METHOD 2: Naive Bayes Machine Learning Algorithm
-df = pd.read_csv("desktop/cs124h/Group19-FA22/project/backend/stock_data.csv")
+df = pd.read_csv("stock_data.csv")
 stop = set(stopwords.words("english"))
 vectorizer = TfidfVectorizer(use_idf=True, lowercase=True, strip_accents="ascii", stop_words=stop)
 
