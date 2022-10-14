@@ -3,7 +3,6 @@ from pydantic import BaseSettings
 # Settings class that holds env variables
 class Settings(BaseSettings):
     ATLAS_URI: str
-    DB_NAME: str
 
     # reads from .env file
     class Config:

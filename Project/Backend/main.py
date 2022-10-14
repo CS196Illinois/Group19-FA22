@@ -13,7 +13,7 @@ app = FastAPI()
 @app.on_event("startup")
 def startup_db_client():
     app.mongodb_client = MongoClient(settings.ATLAS_URI)
-    app.database = app.mongodb_client[settings.DB_NAME]
+    app.database = app.mongodb_client["test"]
     print("Connected to MongoDB database!")
 
 
