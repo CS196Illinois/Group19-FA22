@@ -126,7 +126,14 @@ example2 = vectorizer.transform(["red, not ready for break out."])
 print(classifier.predict(example2))
 
 
+import pickle
+f = open('my_classifier.pickle', 'wb')
+pickle.dump(classifier, f)
+f.close()
 
+g = open('my_vectorizer.pickle', 'wb')
+pickle.dump(vectorizer, g)
+g.close()
 
 # LSTM
 
