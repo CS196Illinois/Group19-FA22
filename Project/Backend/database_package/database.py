@@ -1,9 +1,8 @@
-from model import TweetObject
-from config import settings
+from .model import TweetObject
 
 import motor.motor_asyncio
 
-client = motor.motor_asyncio.AsyncIOMotorClient(settings.ATLAS_URI)
+client = motor.motor_asyncio.AsyncIOMotorClient("mongodb+srv://group19:test@cs124h-group19.albxwcm.mongodb.net/test")
 database = client.test
 collection = database.twitter
 

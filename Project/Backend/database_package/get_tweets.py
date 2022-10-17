@@ -1,7 +1,6 @@
-import tweepy, os, asyncio
+import asyncio, os, tweepy
 from dotenv import load_dotenv
-from model import TweetObject
-from database import post_tweet
+from Project.Backend.database_package.database import post_tweet
 
 load_dotenv()
 
