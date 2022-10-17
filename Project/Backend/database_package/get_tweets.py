@@ -6,15 +6,15 @@ load_dotenv()
 
 auth = tweepy.OAuth2BearerHandler(os.getenv("BEARER_TOKEN"))
 api = tweepy.API(auth)
-
-tweets = api.search_tweets("$aapl -is:retweet", lang="en", result_type="recent", count=1)
+ticker = "axp"
+tweets = api.search_tweets(f"${ticker}", lang="en", result_type="recent", count=1)
 tweet = tweets[0]._json
 print(tweet.keys())
 
 d = {"tweet_id": tweet["id_str"],
      "time": tweet["created_at"],
      "text": tweet["text"],
-     "ticker": "aapl",
+     "ticker": ticker,
      "sentiment": 0.5}
 
 print(d)

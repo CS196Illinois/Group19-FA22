@@ -17,6 +17,16 @@ async def fetch_all_tweets():
     return tweets
 
 
+async def fetch_tweets_by_ticker(ticker):
+    tweets = []
+    cursor = collection.find({"ticker": ticker})
+
+    async for document in cursor:
+        tweets.append(TweetObject(**document))
+
+    return tweets
+
+
 async def post_tweet(tweet):
     document = tweet
     await collection.insert_one(document)
