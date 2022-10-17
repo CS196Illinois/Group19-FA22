@@ -1,36 +1,28 @@
-from fastapi import FastAPI, Request
-from pymongo import MongoClient     # MongoDB
-from config import settings         # import env variables
-from model import TweetObject       # import tweet object model
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-# connect to MongoDB on application startup
-@app.on_event("startup")
-def startup_db_client():
-    app.mongodb_client = MongoClient(settings.ATLAS_URI)
-    app.database = app.mongodb_client["test"]
-    print("Connected to MongoDB database!")
+# urls that can access the backend api
+origins = [
+    "http://localhost:3000"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 
-# close connection when app is shutdown
-@app.on_event("shutdown")
-def shutdown_db_client():
-    app.mongodb_client.close()
-    print("Disconnected from MongoDB")
-
-
+# test request returns hello world
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
 
 
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
-
-@app.get("/api/test", response_model=TweetObject)
-async def test(request: Request):
-    tweet = request.app.database["test"].find(limit=1)
-    return tweet
-
+@app.get("/api/twitter")
+async def get_tweets():
+    return 1

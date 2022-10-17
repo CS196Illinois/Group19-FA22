@@ -2,7 +2,8 @@ from pydantic import BaseModel
 
 
 class TweetObject(BaseModel):
-    id: str
+    tweet_id: str
     time: str
     text: str
+    ticker: str
     sentiment: float
