@@ -1,9 +1,9 @@
+import datetime
 from pydantic import BaseModel
 
 
-class TweetObject(BaseModel):
-    tweet_id: str
-    time: str
+class TweetSentiment(BaseModel):
+    time: datetime.datetime
     text: str
     ticker: str
     sentiment: float

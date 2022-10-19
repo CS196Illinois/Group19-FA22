@@ -1,7 +1,8 @@
 from fastapi import FastAPI
 
 from fastapi.middleware.cors import CORSMiddleware
-from Project.Backend.database_package.database import fetch_all_tweets, fetch_tweets_by_ticker
+from Project.Backend.database_package.get_sentiment_data import get_sentiment_data
+from Project.Backend.database_package.get_tweet_volume import get_volume_data
 
 import pickle
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -39,21 +40,11 @@ async def root():
     return {"message": "Hello World"}
 
 
-
-@app.get("/api/twitter")
-async def get_tweets():
-    return await fetch_all_tweets()
-
-
-@app.get("/api/twitter{ticker}")
-async def get_tweets_ticker(ticker: str):
-    return await fetch_tweets_by_ticker(ticker)
-
-  
-@app.get("/hello/{input}")
-async def say_hello(input: str):
-    example = vectorizer.transform([input])
-    return {"message": classifier.predict(example)}
+@app.get("/api/twitter/sentiment/{ticker}")
+def get_twitter_sentiment(ticker: str):
+    return get_sentiment_data(ticker)
 
 
-
+@app.get("/api/twitter/volume/{ticker}")
+def get_twitter_volume(ticker: str):
+    return get_volume_data(ticker)
