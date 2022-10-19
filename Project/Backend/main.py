@@ -32,8 +32,7 @@ async def get_tweets():
     return await fetch_all_tweets()
 
 
-@app.get("/api/twitter{ticker}", response_model=List[TweetObject])
+@app.get("/api/twitter/{ticker}")
 async def get_tweets_ticker(ticker: str):
     return await fetch_tweets_by_ticker(ticker)
-
 
