@@ -1,18 +1,18 @@
-import asyncio, os, tweepy
-from dotenv import load_dotenv
+import tweepy, random
+from typing import List
+from Project.Backend.config import settings
 
-load_dotenv()
 
-async def get_sentiment_data(ticker: str) -> dict:
-    auth = tweepy.OAuth2BearerHandler(os.getenv("BEARER_TOKEN"))
+def get_sentiment_data(ticker: str) -> List[dict]:
+
+    auth = tweepy.OAuth2BearerHandler(settings.BEARER_TOKEN)
     api = tweepy.API(auth)
-    tweets = api.search_tweets(f"${ticker}", lang="en", result_type="recent", count=1)
-    tweet = tweets[0]._json
 
-    d = {"tweet_id": tweet["id_str"],
-         "time": tweet["created_at"],
-         "text": tweet["text"],
-         "ticker": ticker,
-         "sentiment": 0.5}
+    data = []
+    for status in tweepy.Cursor(api.search_tweets, f"${ticker}", count=100, lang="en", result_type="popular").items(300):
+        d = {"time": status.created_at,
+             "text": status.text,
+             "sentiment": random.random()}
+        data.append(d)
 
-    return d
+    return data

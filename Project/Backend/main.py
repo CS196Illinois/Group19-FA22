@@ -1,9 +1,7 @@
 from fastapi import FastAPI
-from typing import List
 from fastapi.middleware.cors import CORSMiddleware
-from Project.Backend.database_package.database import fetch_all_tweets, fetch_tweets_by_ticker
-from Project.Backend.database_package.model import TweetObject
-
+from Project.Backend.database_package.get_sentiment_data import get_sentiment_data
+from Project.Backend.database_package.get_tweet_volume import get_volume_data
 
 app = FastAPI()
 
@@ -27,12 +25,11 @@ async def root():
     return {"message": "Hello World"}
 
 
-@app.get("/api/twitter")
-async def get_tweets():
-    return await fetch_all_tweets()
+@app.get("/api/twitter/sentiment/{ticker}")
+def get_twitter_sentiment(ticker: str):
+    return get_sentiment_data(ticker)
 
 
-@app.get("/api/twitter/{ticker}")
-async def get_tweets_ticker(ticker: str):
-    return await fetch_tweets_by_ticker(ticker)
-
+@app.get("/api/twitter/volume/{ticker}")
+def get_twitter_volume(ticker: str):
+    return get_volume_data(ticker)
