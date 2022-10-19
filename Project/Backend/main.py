@@ -1,7 +1,22 @@
 from fastapi import FastAPI
+
 from fastapi.middleware.cors import CORSMiddleware
 from Project.Backend.database_package.get_sentiment_data import get_sentiment_data
 from Project.Backend.database_package.get_tweet_volume import get_volume_data
+
+import pickle
+from sklearn.feature_extraction.text import TfidfVectorizer
+import nltk
+nltk.download("stopwords")
+from nltk.corpus import stopwords
+
+f = open('my_classifier.pickle', 'rb')
+classifier = pickle.load(f)
+f.close()
+g = open('my_vectorizer.pickle', 'rb')
+vectorizer = pickle.load(g)
+g.close()
+
 
 app = FastAPI()
 
