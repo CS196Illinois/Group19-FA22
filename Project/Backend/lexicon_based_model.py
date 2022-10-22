@@ -1,8 +1,3 @@
-#NumPy
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import os
 #NLTK
 import nltk
 nltk.download('omw-1.4')
@@ -20,22 +15,23 @@ from nltk.corpus import sentiwordnet as swn
 from nltk.corpus import wordnet as wn
 from nltk.tag import *
 import re
-#SK Learn
-from sklearn import linear_model
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn import naive_bayes
-from sklearn.metrics import *
-from sklearn.model_selection import train_test_split
+import contractions
 #JSON
 import json
 import csv
 import pickle
+import pandas as pd
+
 
 
 # Lexicon-based model
 
 # Paragraphs to words using nltk
-paragraphs = ["AAPL AAPL AAPL AAPL"]
+raw = ["AAP SPY no more QE for 2013. Now bring the Geithner"]
+paragraphs = []
+for i in raw:
+    fixed = contractions.fix(i)
+    paragraphs.append(fixed)
 words = [word_tokenize(str(word)) for word in paragraphs]
 
 # Removing unwanted characters (anything that is not a word or space using RegEx)
@@ -48,20 +44,45 @@ for para in words:
             temp.append(res.lower())
     cleaned_words.append(temp)
 
+## ADD FINANCE WORDS TO A DICTIONARY AND SAVE USING PICKLE
 # with open('NTUSD_Fin_word_v1.0.json') as word_dict: 
 #     data = json.load(word_dict)
+# print(data[0:4])
 
 # finance_words = {}
 # for entry in data:
 #     finance_words[entry['token']] = entry['market_sentiment']
-# # USE PICKLE TO SAVE
+
 
 # with open('finance_dictionary.pickle', 'wb') as handle:
 #     pickle.dump(finance_words, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
+## SET STOCK NAMES IN DICTIONARY TO 0
+# c = {}
+# with open('finance_dictionary.pickle', 'rb') as handle:
+#     c = pickle.load(handle)
+# df = pd.read_csv("stock_names.csv")
+# for name in df['Company Name']:
+#     n = name.lower()
+#     names = word_tokenize(str(n))
+#     for i in names:
+#         c[i] = 0
+#         print(i)
+# with open('financial_dictionary.pickle', 'wb') as handle:
+#     pickle.dump(c, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
 b = {}
-with open('finance_dictionary.pickle', 'rb') as handle:
+with open('financial_dictionary.pickle', 'rb') as handle:
     b = pickle.load(handle)
+
+## ADDING TERMS TO THE DICTIONARY
+good_words = ['up', 'bull']
+bad_words = ['down', 'short', 'negative']
+
+for i in good_words:
+    b[i] = 1
+for i in bad_words:
+    b[i] = -1
 
 # Removing stop words
 important_words = []
@@ -105,10 +126,6 @@ for pair in after_tagging:
             n += synset.neg_score()
 print("Financial Dictionary Data", score)
 print("Common English Dictionary Model:", (p - n))
-    
-# check for stock dictionary
-# try textblob and vader
-
 
 # # Remove stems (lemmatization)
 # port = PorterStemmer()
@@ -117,43 +134,6 @@ print("Common English Dictionary Model:", (p - n))
 # lemmatized = [wordnet.lemmatize(word) for word in important_words]
 
 
-
-
-
-# # METHOD 2: Naive Bayes Machine Learning Algorithm
-# df = pd.read_csv("stock_data.csv")
-# stop = set(stopwords.words("english"))
-# vectorizer = TfidfVectorizer(use_idf=True, lowercase=True, strip_accents="ascii", stop_words=stop)
-
-# y = df.Sentiment
-# X = vectorizer.fit_transform(df.Text)
-# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
-
-# classifier = naive_bayes.MultinomialNB()
-# classifier.fit(X_train, y_train)
-
-# print("The model is", roc_auc_score(y_test, classifier.predict_proba(X_test)[:,1]) * 100, "percent accurate.")
-# print(classification_report(y_test, classifier.predict(X_test)))
-
-
-
-# example = vectorizer.transform(df.Text[:8])
-# print(classifier.predict(example))
-# print(df.Sentiment[0:8].array)
-
-# example2 = vectorizer.transform(["red, not ready for break out."])
-# print(classifier.predict(example2))
-
-
-# import pickle
-# f = open('my_classifier.pickle', 'wb')
-# pickle.dump(classifier, f)
-# f.close()
-
-# g = open('my_vectorizer.pickle', 'wb')
-# pickle.dump(vectorizer, g)
-# g.close()
-
-# # LSTM
-
-
+## TO DO
+# try textblob and vader
+# add stock words
