@@ -12,7 +12,7 @@ def get_sentiment_data(ticker: str) -> List[dict]:
     for status in tweepy.Cursor(api.search_tweets, f"${ticker}", count=100, lang="en", result_type="popular").items(300):
         d = {"time": status.created_at,
              "text": status.text,
-             "sentiment": random.random()}
+             "sentiment": random.random() * 2 - 1}
         data.append(d)
 
     return data
