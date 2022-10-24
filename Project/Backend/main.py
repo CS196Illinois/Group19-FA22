@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from Project.Backend.database_package.get_sentiment_data import get_sentiment_data
-from Project.Backend.database_package.get_tweet_volume import get_volume_data
+from Project.Backend.database_package.tweets import get_volume_data, get_sentiment_data
 
 app = FastAPI()
 
