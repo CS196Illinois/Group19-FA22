@@ -1,7 +1,7 @@
 import tweepy, random
 from typing import List
 from Project.Backend.config import settings
-
+from Project.Backend.lexicon_based_model import *
 
 def get_volume_data(ticker: str) -> List[dict]:
     # initialize twitter v2 api
@@ -27,10 +27,10 @@ def get_sentiment_data(ticker: str) -> List[dict]:
                                 tweet_mode="extended").items(300):
 
         # put the data into a dict
+        
         d = {"time": status.created_at,
              "text": status.full_text,
-             "sentiment": random.random() * 2 - 1}  # placeholder sentiment function
-
+             "sentiment": calculate_score(status.full_text)}  # placeholder sentiment function
         data.append(d)
 
     return data  # return list of tweet dicts
