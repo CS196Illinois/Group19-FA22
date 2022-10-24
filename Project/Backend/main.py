@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from Project.Backend.database_package.tweets import get_volume_data, get_sentiment_data
+from Project.Backend.social_media_functions.tweets import get_volume_data, get_sentiment_data
 
 app = FastAPI()
 
@@ -20,7 +20,7 @@ app.add_middleware(
 
 # test request returns hello world
 @app.get("/")
-async def root():
+def root():
     return {"message": "Hello World"}
 
 

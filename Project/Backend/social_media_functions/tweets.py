@@ -15,10 +15,16 @@ def get_sentiment_data(ticker: str) -> List[dict]:
     api = tweepy.API(auth)
 
     data = []
-    for status in tweepy.Cursor(api.search_tweets, f"${ticker}", count=100, lang="en", result_type="popular").items(300):
+    for status in tweepy.Cursor(api.search_tweets,
+                                f"${ticker}", count=100,
+                                lang="en",
+                                result_type="popular",
+                                tweet_mode="extended").items(300):
+
         d = {"time": status.created_at,
-             "text": status.text,
+             "text": status.full_text,
              "sentiment": random.random() * 2 - 1}
+
         data.append(d)
 
     return data
