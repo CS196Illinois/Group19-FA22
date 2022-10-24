@@ -72,7 +72,7 @@ for para in words:
 #     pickle.dump(c, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 b = {}
-with open('financial_dictionary.pickle', 'rb') as handle:
+with open('Project/Backend/financial_dictionary.pickle', 'rb') as handle:
     b = pickle.load(handle)
 
 ## ADDING TERMS TO THE DICTIONARY
