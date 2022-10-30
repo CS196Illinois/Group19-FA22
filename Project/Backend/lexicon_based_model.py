@@ -135,7 +135,7 @@ raw = ["The stock market looks really great right now", "Apple stock price went 
 #     # add stock words
     
 b = {}
-with open('Project/Backend/financial_dictionary.pickle', 'rb') as handle:
+with open('financial_dictionary.pickle', 'rb') as handle:
     b = pickle.load(handle)
 
 ## ADDING TERMS TO THE DICTIONARY

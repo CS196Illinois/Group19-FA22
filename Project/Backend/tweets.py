@@ -1,14 +1,15 @@
 import tweepy, random
 from typing import List
-from Project.Backend.config import settings
-from Project.Backend.lexicon_based_model import *
+from config import settings
+from lexicon_based_model import calculate_score
+
 
 def get_volume_data(ticker: str) -> List[dict]:
     # initialize twitter v2 api
     client = tweepy.Client(settings.BEARER_TOKEN)
 
     # retrieve volume data about ticker in 24 hour timeframes from the past week
-    volume = client.get_recent_tweets_count(f"{ticker.upper()}", granularity="day").data
+    volume = client.get_recent_tweets_count(f"{ticker.upper()}", granularity="day").data  # type: ignore
     return volume[1:]
 
 
