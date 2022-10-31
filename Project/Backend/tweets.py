@@ -1,4 +1,4 @@
-import tweepy, random
+import tweepy
 from typing import List
 from config import settings
 from lexicon_based_model import calculate_score
