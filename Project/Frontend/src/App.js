@@ -1,15 +1,15 @@
-import './App.css';
+import "./App.css"
 
-import StockPage from './components/StockPage';
-import Table from './components/HomePage/table';
+import StockPage from "./components/StockPage"
+import Table from "./components/HomePage/table"
 
 function App() {
-  return (
-    <div className="App">
-      {/* STOCK PAGE */}
-      <StockPage />
-    </div>
-  );
+	return (
+		<div className="App">
+			{/* STOCK PAGE */}
+			<StockPage />
+		</div>
+	)
 }
 
-export default App;
+export default App
