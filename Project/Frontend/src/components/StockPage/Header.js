@@ -15,7 +15,7 @@ function Header() {
 
     const toggleActive = event => {
 
-        if (event.target.tagName == "A") {
+        if (event.target.tagName === "A") {
 
             // Remove any existing active classes
             const links = document.querySelectorAll('.menu__item');
@@ -48,13 +48,13 @@ function Header() {
                 <div className="menu__wrapper">
                     <ul className="menu ul--reset">
                         <li className="menu__item is__nav__item__active">
-                            <a href="#" onClick={toggleActive}>Sentiment</a>
+                            <a href="/" onClick={toggleActive}>Sentiment</a>
                         </li>
                         <li className="menu__item">
-                            <a href="#" onClick={toggleActive}>Historic</a>
+                            <a href="/" onClick={toggleActive}>Historic</a>
                         </li>
                         <li className="menu__item">
-                            <a href="#" onClick={toggleActive}>Metrics</a>
+                            <a href="/" onClick={toggleActive}>Metrics</a>
                         </li>
                     </ul>
                     <span className="nav__marker"></span>
