@@ -1,10 +1,14 @@
-import { VStack, Heading } from '@chakra-ui/react'
+import './App.css';
+
+import StockPage from './components/StockPage';
+import Table from './components/HomePage/table';
 
 function App() {
   return (
-    <VStack>
-      <Heading>Stock Sentiment Dashboard</Heading>
-    </VStack>
+    <div className="App">
+      {/* STOCK PAGE */}
+      <StockPage />
+    </div>
   );
 }
 

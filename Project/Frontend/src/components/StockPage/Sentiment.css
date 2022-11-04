@@ -1,0 +1,55 @@
+.sentiment {
+    scroll-behavior: -175px;
+    height: 525px;
+    margin: 175px 48px 0 48px;
+    border-radius: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #282626;
+}
+
+.sentiment__wrapper {
+    height: 425px;
+    width: 100%;
+    margin: 0 48px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* LINE GRAPH */
+
+.line__graph__wrapper {
+    flex: 0.65;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.25), 10px 10px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* BAR CHART */
+
+.bar__chart__wrapper {
+    flex: 0.3125;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.25), 10px 10px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* GENERAL */
+
+/* HEADER */
+
+.sentiment__header {
+    flex: 0.1125;
+    display: flex;
+    align-items: flex-end;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+/* CHART */
