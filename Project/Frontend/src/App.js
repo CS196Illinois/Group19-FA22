@@ -1,13 +1,12 @@
 import "./App.css"
 
 import StockPage from "./components/StockPage"
-import Table from "./components/HomePage/table"
+import HomePage from "./components/HomePage/HomePage"
 
 function App() {
 	return (
-		<div className="App">
-			{/* STOCK PAGE */}
-			<StockPage />
+		<div className="h-screen">
+			<HomePage />
 		</div>
 	)
 }
