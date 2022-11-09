@@ -7,6 +7,7 @@ import axios from "axios"
 
 function StockPage() {
 	const { ticker } = useParams()
+
 	return (
 		<div className="StockPage">
 			<Header ticker={ticker} />

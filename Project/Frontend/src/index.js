@@ -2,13 +2,13 @@ import React from "react"
 import ReactDOM from "react-dom/client"
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom"
 import "./index.css"
-import App from "./App"
 import StockPage from "./components/StockPage"
+import HomePage from "./components/HomePage/HomePage"
 
 const router = createBrowserRouter([
 	{
 		path: "/",
-		element: <App />
+		element: <HomePage />
 	},
 	{
 		path: "/:ticker",
