@@ -1,11 +1,14 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 function HomePage() {
 	const [ticker, setTicker] = useState("")
+	const navigate = useNavigate()
 
 	const handleSubmit = (event) => {
 		event.preventDefault()
 		console.log(ticker)
+		navigate(`/${ticker}`)
 	}
 
 	const handleOnChange = (event) => {
@@ -45,7 +48,7 @@ function HomePage() {
 						type="search"
 						id="default-search"
 						class="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-						placeholder="Search..."
+						placeholder="ex: AAPL"
 						required
 					/>
 					<button
