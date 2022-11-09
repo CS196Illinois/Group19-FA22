@@ -1,8 +1,9 @@
 import React from "react"
-
+import { useNavigate } from "react-router-dom"
 import "./Header.css"
 
 function Header({ ticker }) {
+	const navigate = useNavigate()
 	const getItemOffset = (item) => {
 		return item.offsetTop
 	}
@@ -29,7 +30,7 @@ function Header({ ticker }) {
 	return (
 		<div className="header">
 			<div className="left__wrapper">
-				<button type="button" className="home__button">
+				<button type="button" className="home__button" onClick={() => navigate("/")}>
 					&#60;
 				</button>
 				<div className="ticker__name__wrapper">
