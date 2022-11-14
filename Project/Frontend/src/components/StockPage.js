@@ -2,6 +2,7 @@ import React from "react"
 
 import Header from "./StockPage/Header"
 import Sentiment from "./StockPage/Sentiment"
+import News from "./StockPage/News"
 import { useParams } from "react-router-dom"
 import axios from "axios"
 
@@ -12,7 +13,7 @@ function StockPage() {
 		<div className="StockPage">
 			<Header ticker={ticker} />
 			<Sentiment />
-			{/* <Historic /> */}
+			<News />
 		</div>
 	)
 }
