@@ -1,15 +1,26 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import axios from "axios"
 import "./HomePage.css"
 
 function HomePage() {
 	const [ticker, setTicker] = useState("")
+	const [warning, setWarning] = useState(false)
 	const navigate = useNavigate()
 
 	const handleSubmit = (event) => {
 		event.preventDefault()
 		console.log(ticker)
-		navigate(`/${ticker}`)
+		axios
+			.get(`http://127.0.0.1:8000/api/validate/${ticker}`)
+			.then((response) => {
+				console.log("valid")
+				navigate(`/${ticker}`)
+			})
+			.catch((response) => {
+				console.log("invalid")
+				setWarning(true)
+			})
 	}
 
 	const handleOnChange = (event) => {
@@ -60,6 +71,7 @@ function HomePage() {
 					</button>
 				</div>
 			</form>
+			{warning ? <h1>Ticker is invalid</h1> : <h1></h1>}
 		</div>
 	)
 }

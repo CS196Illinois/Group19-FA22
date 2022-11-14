@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 import Header from "./StockPage/Header"
 import Sentiment from "./StockPage/Sentiment"
