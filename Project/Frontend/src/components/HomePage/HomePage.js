@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import "./HomePage.css"
 
+import Invalid from "./Invalid"
+
 function HomePage() {
 	const [ticker, setTicker] = useState("")
 	const [warning, setWarning] = useState(false)
@@ -71,7 +73,7 @@ function HomePage() {
 					</button>
 				</div>
 			</form>
-			{warning ? <h1>Ticker is invalid</h1> : <h1></h1>}
+			{warning ? <Invalid /> : <h1></h1>}
 		</div>
 	)
 }
