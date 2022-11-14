@@ -2,7 +2,7 @@ import React from "react"
 import { useNavigate } from "react-router-dom"
 import "./Header.css"
 
-function Header({ ticker }) {
+function Header({ info }) {
 	const navigate = useNavigate()
 	const getItemOffset = (item) => {
 		return item.offsetTop
@@ -34,8 +34,8 @@ function Header({ ticker }) {
 					&#60;
 				</button>
 				<div className="ticker__name__wrapper">
-					<div className="ticker">{ticker}</div>
-					<div className="name">Apple Inc.</div>
+					<div className="ticker">{info.ticker}</div>
+					<div className="name">{info.name}</div>
 				</div>
 			</div>
 			<div className="right__wrapper">
