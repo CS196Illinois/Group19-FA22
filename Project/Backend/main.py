@@ -47,6 +47,7 @@ def get_reddit_sentiment(ticker: str):
     return reddit.get_title_sentiment(ticker, ticker_detail.name)
 
 
+@app.get("/api/validate/{ticker}")
 def validate_ticker(ticker: str):
     try:
         return polygon_client.get_ticker_details(ticker.upper())

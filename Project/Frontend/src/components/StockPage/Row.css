@@ -1,0 +1,9 @@
+.Row {
+    margin: 24px 48px;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+}

@@ -1,15 +1,19 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 import Header from "./StockPage/Header"
 import Sentiment from "./StockPage/Sentiment"
-import Historic from "./StockPage/Historic"
+import News from "./StockPage/News"
+import { useParams } from "react-router-dom"
+import axios from "axios"
 
 function StockPage() {
+	const { ticker } = useParams()
+
 	return (
 		<div className="StockPage">
-			<Header />
+			<Header ticker={ticker} />
 			<Sentiment />
-			{/* <Historic /> */}
+			<News />
 		</div>
 	)
 }
