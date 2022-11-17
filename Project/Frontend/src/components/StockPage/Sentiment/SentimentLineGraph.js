@@ -5,7 +5,7 @@ import "./SentimentLineGraph.css"
 
 import LineGraph from "./LineGraph"
 
-function SentimentLineGraph() {
+function SentimentLineGraph({ twitterSentiment }) {
 	const getItemOffset = (item) => {
 		return item.offsetLeft
 	}

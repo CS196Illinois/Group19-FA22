@@ -9,7 +9,7 @@ function StockPage() {
 	const { ticker } = useParams()
 	const [info, setInfo] = useState("")
 	const [twitterSentiment, setTwitterSentiment] = useState("")
-	const [twitterVolume, setTwitterVolume] = useState("")
+	const [twitterVolume, setTwitterVolume] = useState([])
 	const [redditSentiment, setRedditSentiment] = useState("")
 	const key = process.env.REACT_APP_FINNHUB
 	const backendURL = "http://127.0.0.1:8000/api"
@@ -37,7 +37,11 @@ function StockPage() {
 	return (
 		<div className="StockPage">
 			<Header info={info} />
-			<Sentiment />
+			<Sentiment
+				twitterSentiment={twitterSentiment}
+				twitterVolume={twitterVolume}
+				redditSentiment={redditSentiment}
+			/>
 			<News />
 		</div>
 	)

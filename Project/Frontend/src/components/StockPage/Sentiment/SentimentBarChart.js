@@ -4,7 +4,7 @@ import "./SentimentBarChart.css"
 
 import BarChart from "./BarChart"
 
-function SentimentLineGraph() {
+function SentimentBarChart({ twitterVolume }) {
 	const getItemOffset = (item) => {
 		return item.offsetLeft
 	}
@@ -45,7 +45,7 @@ function SentimentLineGraph() {
 	return (
 		<div className="sentiment__bar__chart">
 			<div className="sentiment__chart">
-				<BarChart />
+				<BarChart twitterVolume={twitterVolume} />
 			</div>
 			<div className="chart__period__wrapper">
 				<div className="chart__period">
@@ -75,4 +75,4 @@ function SentimentLineGraph() {
 	)
 }
 
-export default SentimentLineGraph
+export default SentimentBarChart
