@@ -1,27 +1,22 @@
 import React, { useEffect, useState } from "react"
-
 import Header from "./StockPage/Header"
 import Sentiment from "./StockPage/Sentiment"
 import News from "./StockPage/News"
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import axios from "axios"
 
 function StockPage() {
 	const { ticker } = useParams()
-	const navigate = useNavigate()
 	const [info, setInfo] = useState("")
+	const key = process.env.REACT_APP_FINNHUB
 
 	useEffect(() => {
 		console.log("effect")
-		axios
-			.get(`http://127.0.0.1:8000/api/validate/${ticker}`)
-			.then((response) => {
-				console.log(response.data)
-				setInfo(response.data)
-			})
-			.catch((response) => {
-				console.log("hello")
-			})
+		axios.get(`https://finnhub.io/api/v1/stock/profile2?symbol=${ticker}&token=${key}`).then((response) => {
+			console.log(response.data)
+			setInfo(response.data)
+		})
+		axios.get()
 	}, [])
 
 	return (

@@ -33,7 +33,7 @@ def calculate_score(raw: str) -> int:
     return 1 if score > 1 else -1
     
 def measure_accuracy() -> None:
-    df = pd.read_csv("Project/Backend/stock_data.csv")
+    df = pd.read_csv("stock_data.csv")
     score = 0
     for i in range(1000):
         if calculate_score(df['Text'][i]) == df['Sentiment'][i]:
@@ -142,7 +142,7 @@ raw = ["The stock market looks really great right now", "Apple stock price went 
 #     # add stock words
     
 b = {}
-with open('Project/Backend/financial_dictionary.pickle', 'rb') as handle:
+with open('financial_dictionary.pickle', 'rb') as handle:
     b = pickle.load(handle)
 
 ## ADDING TERMS TO THE DICTIONARY

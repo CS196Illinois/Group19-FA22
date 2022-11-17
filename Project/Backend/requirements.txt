@@ -23,7 +23,9 @@ entrypoints==0.4
 executing==0.10.0
 fastapi==0.85.0
 fastjsonschema==2.16.1
+finnhub-python==2.4.15
 fonttools==4.37.4
+greenlet==2.0.1
 h11==0.14.0
 httptools==0.5.0
 idna==3.4
@@ -49,6 +51,7 @@ matplotlib==3.6.1
 matplotlib-inline==0.1.6
 mistune==2.0.4
 motor==3.0.0
+msgpack==1.0.4
 nbclient==0.6.7
 nbconvert==7.0.0
 nbformat==5.4.0
@@ -77,6 +80,7 @@ pycparser==2.21
 pydantic==1.10.2
 Pygments==2.13.0
 pymongo==4.2.0
+pynvim==0.4.3
 pyparsing==3.0.9
 pyrsistent==0.18.1
 python-dateutil==2.8.2
