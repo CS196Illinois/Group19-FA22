@@ -46,7 +46,25 @@ export const data = {
 	]
 }
 
-function LineGraph() {
+function LineGraph({ twitterSentiment }) {
+	const labels = twitterSentiment.map((o) => o.time)
+
+	const data = {
+		labels,
+		datasets: [
+			{
+				label: "Dataset 1",
+				data: twitterSentiment.map((o) => o.sentiment),
+				borderColor: "rgb(255, 99, 132)",
+				backgroundColor: "rgba(255, 99, 132, 0.5)"
+			},
+			{
+				label: "price",
+				data: labels.map(() => faker.random.numeric(1)),
+				borderColor: "rgb(234, 43, 221)"
+			}
+		]
+	}
 	return <Line options={options} data={data} />
 }
 

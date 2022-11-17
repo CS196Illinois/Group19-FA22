@@ -54,19 +54,7 @@ function SentimentBarChart({ twitterVolume }) {
 						className="sentiment__bar__chart__period sentiment__bar__chart__period__active"
 						onClick={toggleActive}
 					>
-						1D
-					</div>
-					<div id="5D" className="sentiment__bar__chart__period" onClick={toggleActive}>
-						5D
-					</div>
-					<div id="1M" className="sentiment__bar__chart__period" onClick={toggleActive}>
-						1M
-					</div>
-					<div id="6M" className="sentiment__bar__chart__period" onClick={toggleActive}>
-						6M
-					</div>
-					<div id="1Y" className="sentiment__bar__chart__period" onClick={toggleActive}>
-						1Y
+						1 Week
 					</div>
 					<span className="sentiment__bar__chart__marker"></span>
 				</div>

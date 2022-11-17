@@ -86,7 +86,7 @@ function SentimentLineGraph({ twitterSentiment }) {
 	return (
 		<div className="sentiment__line__graph">
 			<div className="sentiment__chart">
-				<LineGraph />
+				<LineGraph twitterSentiment={twitterSentiment} />
 			</div>
 			<div className="chart__period__wrapper">
 				<div className="chart__period">
@@ -95,19 +95,7 @@ function SentimentLineGraph({ twitterSentiment }) {
 						className="sentiment__line__graph__period sentiment__line__graph__period__active"
 						onClick={callOnClick}
 					>
-						1D
-					</div>
-					<div id="5D" className="sentiment__line__graph__period" onClick={callOnClick}>
-						5D
-					</div>
-					<div id="1M" className="sentiment__line__graph__period" onClick={callOnClick}>
-						1M
-					</div>
-					<div id="6M" className="sentiment__line__graph__period" onClick={callOnClick}>
-						6M
-					</div>
-					<div id="1Y" className="sentiment__line__graph__period" onClick={callOnClick}>
-						1Y
+						1 Week
 					</div>
 					<span className="sentiment__line__graph__marker"></span>
 				</div>

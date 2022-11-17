@@ -1,15 +1,11 @@
-import polygon.exceptions
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from polygon.rest import RESTClient
 from dotenv import load_dotenv
-import tweets, reddit, os, finnhub
+import tweets, reddit
 
 load_dotenv()
 
 app = FastAPI()
-polygon_client = RESTClient(os.getenv("POLYGON_API_KEY"))
-# finnhub = finnhub.Client(api_key=os.getenv("FINNHUB_API_KEY"))
 
 # urls that can access the backend api
 origins = [
