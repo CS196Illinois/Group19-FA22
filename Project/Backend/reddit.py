@@ -13,11 +13,16 @@ reddit = praw.Reddit(
 def get_title_sentiment(ticker: str, company_name: str):
     common_name = "".join(company_name.split(" ")[:-1])
     data = []
-    query = f"(title:{ticker}) OR (title:{common_name})"
-    for submission in reddit.subreddit("stocks").search(query, limit=25, time_filter="week"):
+    query = f"(title:{ticker}) OR (title:{company_name})"
+    for submission in reddit.subreddit("stocks").search(query, limit=25, time_filter="month"):
         data.append({
             "text": submission.title,
             "sentiment": calculate_score(submission.title),
             "time": str(datetime.fromtimestamp(submission.created_utc))
         })
     return data
+
+
+if __name__ == '__main__':
+    for submission in reddit.subreddit("stocks").search("(title:AAPL) OR (title:apple)", time_filter="month"):
+        print(submission.title)
