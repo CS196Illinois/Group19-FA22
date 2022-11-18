@@ -8,7 +8,7 @@ import axios from "axios"
 function StockPage() {
 	const { ticker } = useParams()
 	const [info, setInfo] = useState("")
-	const [twitterSentiment, setTwitterSentiment] = useState("")
+	const [twitterSentiment, setTwitterSentiment] = useState([])
 	const [twitterVolume, setTwitterVolume] = useState([])
 	const [redditSentiment, setRedditSentiment] = useState("")
 	const key = process.env.REACT_APP_FINNHUB
@@ -25,8 +25,8 @@ function StockPage() {
 			})
 		})
 		axios.get(`${backendURL}/twitter/sentiment/${ticker}`).then((response) => {
-			console.log(response.data)
-			setTwitterSentiment(response.data)
+			setTwitterSentiment(response.data.sort((objA, objB) => new Date(objA.time) - new Date(objB.time)))
+			console.log(twitterSentiment)
 		})
 		axios.get(`${backendURL}/twitter/volume/${ticker}`).then((response) => {
 			console.log(response.data)

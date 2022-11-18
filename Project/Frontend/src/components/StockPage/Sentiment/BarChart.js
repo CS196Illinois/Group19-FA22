@@ -21,7 +21,7 @@ export const options = {
 }
 
 function BarChart({ twitterVolume }) {
-	const labels = twitterVolume.map((o) => o.start.substring(0, 10))
+	const labels = twitterVolume.map((o) => new Date(o.start).toLocaleDateString())
 	const data = {
 		labels,
 		datasets: [
