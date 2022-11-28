@@ -22,8 +22,8 @@ function Row(props) {
 
     return (
         <div className="Row">
-            <a href={props.url} target="_blank"><h1>{formatHeadline(props.headline)}</h1></a>
-            <p>{formatSummary(props.summary)}</p>
+            <a href={props.url} target="_blank" className="text-3xl"><h1>{formatHeadline(props.headline)}</h1></a>
+            <p className="text-l">{formatSummary(props.summary)}</p>
         </div>
     )
 

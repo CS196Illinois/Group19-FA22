@@ -22,10 +22,15 @@ function News({ info }) {
 
 	return (
 		<div className="News">
-			<div className="news__wrapper">
-				{articles?.map((article, index) => {
-					return <Row key={index} url={article.url} headline={article.headline} summary={article.summary} />
-				})}
+			<div className="wrapper">
+				<div className="news__header">
+					<h1 className="text-3xl">News</h1>
+				</div>
+				<div className="news__wrapper">
+					{articles?.map((article, index) => {
+						return <Row key={index} url={article.url} headline={article.headline} summary={article.summary} />
+					})}
+				</div>
 			</div>
 		</div>
 	)
