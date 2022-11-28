@@ -5,7 +5,7 @@ import "./Sentiment.css"
 import SentimentLineGraph from "./Sentiment/SentimentLineGraph"
 import SentimentBarChart from "./Sentiment/SentimentBarChart"
 
-function Sentiment({ twitterSentiment, twitterVolume, redditSentiment }) {
+function Sentiment({ twitterSentiment, twitterVolume, redditSentiment, price }) {
 	return (
 		<div className="sentiment">
 			<div className="sentiment__wrapper">
@@ -13,7 +13,7 @@ function Sentiment({ twitterSentiment, twitterVolume, redditSentiment }) {
 					<div className="sentiment__header">
 						<h1>Market Sentiment</h1>
 					</div>
-					<SentimentLineGraph twitterSentiment={twitterSentiment} />
+					<SentimentLineGraph twitterSentiment={twitterSentiment} price={price} />
 				</div>
 				<div className="bar__chart__wrapper">
 					<div className="sentiment__header">

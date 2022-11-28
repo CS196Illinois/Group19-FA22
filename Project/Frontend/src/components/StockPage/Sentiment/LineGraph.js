@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {
 	Chart as ChartJS,
 	CategoryScale,
@@ -11,8 +11,9 @@ import {
 	TimeScale
 } from "chart.js"
 import { Line } from "react-chartjs-2"
-import { faker } from "@faker-js/faker"
 import "chartjs-adapter-date-fns"
+import axios from "axios"
+import useFetch from "../useFetch"
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, TimeScale)
 
@@ -54,9 +55,8 @@ export const options = {
 	}
 }
 
-function LineGraph({ twitterSentiment }) {
+function LineGraph({ twitterSentiment, price }) {
 	const data = {
-		//labels,
 		datasets: [
 			{
 				label: "Sentiment",
@@ -64,13 +64,13 @@ function LineGraph({ twitterSentiment }) {
 				borderColor: "rgb(255, 99, 132)",
 				backgroundColor: "rgba(255, 99, 132, 0.5)",
 				yAxisID: "y"
+			},
+			{
+				label: "price",
+				data: price.c.map((o, i) => ({ x: new Date(price.t[i] * 1000).valueOf(), y: o })),
+				borderColor: "rgb(234, 43, 221)",
+				yAxisID: "y2"
 			}
-			//{
-			//	label: "price",
-			//	data: labels.map(() => faker.random.numeric(3)),
-			//	borderColor: "rgb(234, 43, 221)",
-			//	yAxisID: "y2"
-			//}
 		]
 	}
 	return <Line options={options} data={data} />

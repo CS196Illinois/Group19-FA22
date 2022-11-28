@@ -4,6 +4,7 @@ import Sentiment from "./StockPage/Sentiment"
 import News from "./StockPage/News"
 import { useParams } from "react-router-dom"
 import axios from "axios"
+import useFetch from "./StockPage/useFetch"
 
 function StockPage() {
 	const { ticker } = useParams()
@@ -11,6 +12,7 @@ function StockPage() {
 	const [twitterSentiment, setTwitterSentiment] = useState([])
 	const [twitterVolume, setTwitterVolume] = useState([])
 	const [redditSentiment, setRedditSentiment] = useState("")
+	const [price, setPrice] = useState({ c: [1], t: [1] })
 	const key = process.env.REACT_APP_FINNHUB
 	const backendURL = "http://127.0.0.1:8000/api"
 
@@ -32,6 +34,16 @@ function StockPage() {
 			console.log(response.data)
 			setTwitterVolume(response.data)
 		})
+		axios
+			.get(
+				`https://finnhub.io/api/v1/stock/candle?symbol=${ticker}&resolution=D&from=${Math.floor(
+					(Date.now() - 1000 * 60 * 60 * 24 * 7) / 1000
+				)}&to=${Math.floor(Date.now() / 1000)}&token=${key}`
+			)
+			.then((response) => {
+				console.log(response.data)
+				setPrice(response.data)
+			})
 	}, [])
 
 	return (
@@ -41,6 +53,7 @@ function StockPage() {
 				twitterSentiment={twitterSentiment}
 				twitterVolume={twitterVolume}
 				redditSentiment={redditSentiment}
+				price={price}
 			/>
 			<News info={info} key={key} />
 		</div>

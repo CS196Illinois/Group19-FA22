@@ -5,7 +5,7 @@ import "./SentimentLineGraph.css"
 
 import LineGraph from "./LineGraph"
 
-function SentimentLineGraph({ twitterSentiment }) {
+function SentimentLineGraph({ twitterSentiment, price, setPrice, info }) {
 	const getItemOffset = (item) => {
 		return item.offsetLeft
 	}
@@ -86,7 +86,7 @@ function SentimentLineGraph({ twitterSentiment }) {
 	return (
 		<div className="sentiment__line__graph">
 			<div className="sentiment__chart">
-				<LineGraph twitterSentiment={twitterSentiment} />
+				<LineGraph twitterSentiment={twitterSentiment} price={price} />
 			</div>
 			<div className="chart__period__wrapper">
 				<div className="chart__period">
