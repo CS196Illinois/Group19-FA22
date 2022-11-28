@@ -33,11 +33,13 @@ export const options = {
 		}
 	},
 	scales: {
-		x: { type: "time" },
+		x: { type: "time", time: { unit: "day", round: "true" } },
 		y: {
 			type: "linear",
 			display: true,
-			position: "left"
+			position: "left",
+			min: -1,
+			max: 1
 		},
 		y2: {
 			type: "linear",
@@ -57,7 +59,7 @@ function LineGraph({ twitterSentiment }) {
 		//labels,
 		datasets: [
 			{
-				label: "Dataset 1",
+				label: "Sentiment",
 				data: twitterSentiment.map((o) => ({ x: o.time, y: o.sentiment })),
 				borderColor: "rgb(255, 99, 132)",
 				backgroundColor: "rgba(255, 99, 132, 0.5)",

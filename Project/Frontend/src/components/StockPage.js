@@ -42,7 +42,7 @@ function StockPage() {
 				twitterVolume={twitterVolume}
 				redditSentiment={redditSentiment}
 			/>
-			<News />
+			<News info={info} key={key} />
 		</div>
 	)
 }

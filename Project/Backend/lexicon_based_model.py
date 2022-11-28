@@ -21,7 +21,7 @@ import json
 import csv
 import pickle
 import pandas as pd
-
+from scipy.special import expit
 
 def calculate_score(raw: str) -> int:
     fixed = contractions.fix(raw)
@@ -30,7 +30,7 @@ def calculate_score(raw: str) -> int:
     for word in words:
         if word in b:
             score += b[word]
-    return 1 if score > 1 else -1
+    return (expit(score) - 0.5) * 2
     
 def measure_accuracy() -> None:
     df = pd.read_csv("stock_data.csv")
