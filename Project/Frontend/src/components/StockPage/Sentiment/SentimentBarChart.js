@@ -4,7 +4,7 @@ import "./SentimentBarChart.css"
 
 import BarChart from "./BarChart"
 
-function SentimentLineGraph() {
+function SentimentBarChart({ twitterVolume }) {
 	const getItemOffset = (item) => {
 		return item.offsetLeft
 	}
@@ -45,7 +45,7 @@ function SentimentLineGraph() {
 	return (
 		<div className="sentiment__bar__chart">
 			<div className="sentiment__chart">
-				<BarChart />
+				<BarChart twitterVolume={twitterVolume} />
 			</div>
 			<div className="chart__period__wrapper">
 				<div className="chart__period">
@@ -54,19 +54,7 @@ function SentimentLineGraph() {
 						className="sentiment__bar__chart__period sentiment__bar__chart__period__active"
 						onClick={toggleActive}
 					>
-						1D
-					</div>
-					<div id="5D" className="sentiment__bar__chart__period" onClick={toggleActive}>
-						5D
-					</div>
-					<div id="1M" className="sentiment__bar__chart__period" onClick={toggleActive}>
-						1M
-					</div>
-					<div id="6M" className="sentiment__bar__chart__period" onClick={toggleActive}>
-						6M
-					</div>
-					<div id="1Y" className="sentiment__bar__chart__period" onClick={toggleActive}>
-						1Y
+						1 Week
 					</div>
 					<span className="sentiment__bar__chart__marker"></span>
 				</div>
@@ -75,4 +63,4 @@ function SentimentLineGraph() {
 	)
 }
 
-export default SentimentLineGraph
+export default SentimentBarChart

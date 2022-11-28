@@ -29,10 +29,13 @@ function Header({ info }) {
 
 	return (
 		<div className="header">
-			<div className="left__wrapper">
+			<div className="left__wrapper items-center">
 				<button type="button" className="home__button" onClick={() => navigate("/")}>
 					&#60;
 				</button>
+				<div className="">
+					<img src={info.logo} alt="logo" className="p-4 h-36 rounded-full" />
+				</div>
 				<div className="ticker__name__wrapper">
 					<div className="ticker">{info.ticker}</div>
 					<div className="name">{info.name}</div>
@@ -41,23 +44,22 @@ function Header({ info }) {
 			<div className="right__wrapper">
 				<div className="menu__wrapper">
 					<ul className="menu ul--reset">
-						<li className="menu__item is__nav__item__active">
+						<li className="menu__item">
 							<a href="/" onClick={toggleActive}>
 								Sentiment
 							</a>
 						</li>
 						<li className="menu__item">
 							<a href="/" onClick={toggleActive}>
-								Historic
+								Volume
 							</a>
 						</li>
 						<li className="menu__item">
 							<a href="/" onClick={toggleActive}>
-								Metrics
+								News
 							</a>
 						</li>
 					</ul>
-					<span className="nav__marker"></span>
 				</div>
 			</div>
 		</div>

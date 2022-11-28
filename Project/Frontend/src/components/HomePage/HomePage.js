@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import "./HomePage.css"
@@ -9,20 +9,21 @@ function HomePage() {
 	const [ticker, setTicker] = useState("")
 	const [warning, setWarning] = useState(false)
 	const navigate = useNavigate()
+	const key = process.env.REACT_APP_FINNHUB
 
 	const handleSubmit = (event) => {
 		event.preventDefault()
 		console.log(ticker)
-		axios
-			.get(`http://127.0.0.1:8000/api/validate/${ticker}`)
-			.then((response) => {
-				console.log("valid")
-				navigate(`/${ticker}`)
-			})
-			.catch((response) => {
+		axios.get(`https://finnhub.io/api/v1/stock/profile2?symbol=${ticker}&token=${key}`).then((response) => {
+			console.log(response.data)
+			if (Object.keys(response.data).length === 0) {
 				console.log("invalid")
 				setWarning(true)
-			})
+			} else {
+				console.log("valid")
+				navigate(`/${ticker}`)
+			}
+		})
 	}
 
 	const handleOnChange = (event) => {
