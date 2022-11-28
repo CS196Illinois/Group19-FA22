@@ -24,6 +24,16 @@ function Header({ info }) {
 			activeItem.classList.toggle("is__nav__item__active")
 			const offset = getItemOffset(activeItem)
 			moveMarker(offset)
+
+			const section = event.target.innerText
+			const scrollToSection = {
+				"Sentiment": 0,
+				"Volume": 0,
+				"News": 575
+			}
+
+			scroll(scrollY, scrollToSection[section])
+
 		}
 	}
 
@@ -45,17 +55,17 @@ function Header({ info }) {
 				<div className="menu__wrapper">
 					<ul className="menu ul--reset">
 						<li className="menu__item">
-							<a href="/" onClick={toggleActive}>
+							<a onClick={toggleActive}>
 								Sentiment
 							</a>
 						</li>
 						<li className="menu__item">
-							<a href="/" onClick={toggleActive}>
+							<a onClick={toggleActive}>
 								Volume
 							</a>
 						</li>
 						<li className="menu__item">
-							<a href="/" onClick={toggleActive}>
+							<a onClick={toggleActive}>
 								News
 							</a>
 						</li>

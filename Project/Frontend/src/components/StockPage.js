@@ -4,7 +4,6 @@ import Sentiment from "./StockPage/Sentiment"
 import News from "./StockPage/News"
 import { useParams } from "react-router-dom"
 import axios from "axios"
-import useFetch from "./StockPage/useFetch"
 
 function StockPage() {
 	const { ticker } = useParams()

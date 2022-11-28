@@ -4,6 +4,7 @@ import axios from "axios"
 import "./HomePage.css"
 
 import Invalid from "./Invalid"
+import TrendingCarousel from "./TrendingCarousel"
 
 function HomePage() {
 	const [ticker, setTicker] = useState("")
@@ -75,6 +76,7 @@ function HomePage() {
 				</div>
 			</form>
 			{warning ? <Invalid /> : <h1></h1>}
+			<TrendingCarousel />
 		</div>
 	)
 }
