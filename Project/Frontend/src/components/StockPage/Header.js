@@ -27,11 +27,12 @@ function Header({ info }) {
 
 			const section = event.target.innerText
 			const scrollToSection = {
-				"Sentiment": 0,
-				"Volume": 0,
-				"News": 575
+				"SENTIMENT": 0,
+				"VOLUME": 0,
+				"NEWS": 575
 			}
 
+			console.log(scrollToSection[section]);
 			scroll(scrollY, scrollToSection[section])
 
 		}
@@ -70,6 +71,7 @@ function Header({ info }) {
 							</a>
 						</li>
 					</ul>
+					<span className="nav__marker"></span>
 				</div>
 			</div>
 		</div>

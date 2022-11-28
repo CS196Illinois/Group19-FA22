@@ -1,3 +1,11 @@
+.TrendingCarousel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 350px;
+}
+
 .container {
     display: flex;
     justify-content: space-around;
@@ -13,6 +21,8 @@
     width: 200px;
     height: 150px;
     cursor: pointer;
+    border: 1px solid white;
+    border-radius: 10px;
 }
 
 .middle {
@@ -23,4 +33,6 @@
     width: 300px;
     height: 255px;
     cursor: pointer;
+    border: 1px solid white;
+    border-radius: 10px;
 }
