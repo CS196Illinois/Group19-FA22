@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom"
+import axios from "axios"
 
-const tickers = ["AAPL", "MSFT", "TSLA", "GE", "SHOP"]
+// const tickers = ["AAPL", "MSFT", "TSLA", "GE", "SHOP"]
 
 import "./TrendingCarousel.css"
 
-function TrendingCarousel() {
+function TrendingCarousel({ data }) {
 
     const [count, setCount] = useState(1);
     const navigate = useNavigate()
@@ -29,12 +30,14 @@ function TrendingCarousel() {
         <div className='TrendingCarousel'>
             <h1 className='text-3xl'>Trending Tickers</h1>
             <div className='container'>
-                <div className='left' onClick={handleClick}>{tickers[(count - 1) % tickers.length]}</div>
-                <div className='middle' onClick={handleClick}>{tickers[(count) % tickers.length]}</div>
-                <div className='right' onClick={handleClick}>{tickers[(count + 1) % tickers.length]}</div>
+                <div className='left' onClick={handleClick}>{data[(count - 1) % data.length]}</div>
+                <div className='middle' onClick={handleClick}>{data[(count) % data.length]}</div>
+                <div className='right' onClick={handleClick}>{data[(count + 1) % data.length]}</div>
             </div>
         </div>
     )
+
+    
 }
 
 export default TrendingCarousel

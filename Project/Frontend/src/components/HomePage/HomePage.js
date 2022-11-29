@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import "./HomePage.css"
@@ -7,7 +7,9 @@ import Invalid from "./Invalid"
 import TrendingCarousel from "./TrendingCarousel"
 
 function HomePage() {
+	
 	const [ticker, setTicker] = useState("")
+	const [data, setData] = useState([])
 	const [warning, setWarning] = useState(false)
 	const navigate = useNavigate()
 	const key = process.env.REACT_APP_FINNHUB
@@ -32,6 +34,17 @@ function HomePage() {
 		setTicker(event.target.value)
 		console.log(event.target.value)
 	}
+
+	useEffect(() => {
+
+        axios.get(`https://finnhub.io/api/v1/index/constituents?symbol=^NDX&token=${key}`)
+			.then((response) => {
+				let data = response.data.constituents;
+				data.sort(() => Math.random() - Math.random()).slice(0, 20)
+				setData(data)
+			})
+
+    }, [])
 
 	return (
 		<div className="flex flex-col justify-center items-center">
@@ -76,7 +89,7 @@ function HomePage() {
 				</div>
 			</form>
 			{warning ? <Invalid /> : <h1></h1>}
-			<TrendingCarousel />
+			<TrendingCarousel data={data} />
 		</div>
 	)
 }
