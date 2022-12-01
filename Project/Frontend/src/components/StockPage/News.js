@@ -28,7 +28,18 @@ function News({ info }) {
 				</div>
 				<div className="news__wrapper">
 					{articles?.map((article, index) => {
-						return <Row key={index} url={article.url} headline={article.headline} summary={article.summary} />
+						if (index > 10) {
+							return
+						}
+						return (
+							<Row
+								key={index}
+								source={article.source}
+								url={article.url}
+								headline={article.headline}
+								summary={article.summary}
+							/>
+						)
 					})}
 				</div>
 			</div>

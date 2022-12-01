@@ -22,7 +22,7 @@ export const options = {
 	maintainAspectRatio: false,
 	plugins: {
 		legend: {
-			display: false
+			display: true
 		},
 		hover: {
 			mode: "nearest",
@@ -59,16 +59,16 @@ function LineGraph({ twitterSentiment, price }) {
 	const data = {
 		datasets: [
 			{
-				label: "Sentiment",
+				label: "Twitter Sentiment",
 				data: twitterSentiment.map((o) => ({ x: o.time, y: o.sentiment })),
-				borderColor: "rgb(255, 99, 132)",
-				backgroundColor: "rgba(255, 99, 132, 0.5)",
+				borderColor: "rgb(45, 130, 240)",
+				//backgroundColor: "rgba(255, 99, 132, 0.5)",
 				yAxisID: "y"
 			},
 			{
-				label: "price",
+				label: "Stock Price",
 				data: price.c.map((o, i) => ({ x: new Date(price.t[i] * 1000).valueOf(), y: o })),
-				borderColor: "rgb(234, 43, 221)",
+				borderColor: "rgb(40, 230, 140)",
 				yAxisID: "y2"
 			}
 		]

@@ -20,10 +20,10 @@ function StockPage() {
 		axios.get(`https://finnhub.io/api/v1/stock/profile2?symbol=${ticker}&token=${key}`).then((response) => {
 			console.log(response.data)
 			setInfo(response.data)
-			axios.get(`${backendURL}/reddit/sentiment/${ticker}?company=${info.name}`).then((response) => {
-				console.log(response.data)
-				setRedditSentiment(response.data)
-			})
+			// axios.get(`${backendURL}/reddit/sentiment/${ticker}?company=${info.name}`).then((response) => {
+			//	console.log(response.data)
+			//	setRedditSentiment(response.data)
+			//})
 		})
 		axios.get(`${backendURL}/twitter/sentiment/${ticker}`).then((response) => {
 			setTwitterSentiment(response.data.sort((objA, objB) => new Date(objA.time) - new Date(objB.time)))

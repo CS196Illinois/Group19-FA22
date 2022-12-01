@@ -28,7 +28,7 @@ function BarChart({ twitterVolume }) {
 			{
 				label: "Dataset 1",
 				data: twitterVolume.map((o) => o.tweet_count),
-				backgroundColor: "rgba(255, 99, 132, 0.5)"
+				backgroundColor: "rgb(45, 130, 240)"
 			}
 		]
 	}

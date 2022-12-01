@@ -11,7 +11,7 @@ function Sentiment({ twitterSentiment, twitterVolume, redditSentiment, price }) 
 			<div className="sentiment__wrapper">
 				<div className="line__graph__wrapper">
 					<div className="sentiment__header">
-						<h1 className="text-3xl">Market Sentiment</h1>
+						<h1 className="text-3xl">Twitter Sentiment</h1>
 					</div>
 					<SentimentLineGraph twitterSentiment={twitterSentiment} price={price} />
 				</div>
